@@ -3,7 +3,6 @@ import BookEvent from "@/components/BookEvent";
 import EventCard from "@/components/EventCard";
 import { IEvent } from "@/database";
 import axios from "axios";
-import mongoose from "mongoose";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
@@ -134,7 +133,7 @@ const EventDetailPage = async ({
             ) : (
               <p className="text-sm">Be the first to book your spot!</p>
             )}
-            <BookEvent />
+            <BookEvent eventId={event._id} slug={event.slug}/>
           </div>
         </aside>
       </div>
@@ -146,7 +145,6 @@ const EventDetailPage = async ({
             similarEvents.map((event) => {
               console.log(typeof event);
               return (
-                // <EventCard key={event.title} date={event.date} image={event.image} location={event.location} slug={event.slug} time={event.time} title={event.title} />
                 <EventCard key={event.title} {...event} />
               );
             })}

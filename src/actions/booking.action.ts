@@ -12,6 +12,6 @@ export const createBooking = async({eventId, slug, email}: {eventId: mongoose.Ty
         return {success: true}
     } catch (err) {
         console.error("create booking failed", err);
-        return {success: false, error: err}
+        return {success: false}
     }
 }

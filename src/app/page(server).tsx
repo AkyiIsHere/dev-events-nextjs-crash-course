@@ -2,15 +2,11 @@ import EventCard from "@/components/EventCard";
 import ExploreBtn from "@/components/ExploreBtn";
 import { IEvent } from "@/database";
 import axios from "axios";
-import { cacheLife } from "next/cache";
 
 const baseUrl = process.env.INTERNAL_BASE_URL;
-// console.log(baseUrl);
+console.log(baseUrl);
 
 const Page = async () => {
-  'use cache';
-  cacheLife('hours')
-
   let events: IEvent[] = [];
 
   try {
@@ -45,13 +41,11 @@ const Page = async () => {
         <h3>Featured Events</h3>
         {events.length > 0 ? (
           <ul className="events">
-            {events.map((event) => {
-              console.log("main page: ", typeof event)
-              return <li key={event.title} className="list-none">
-                {/* <EventCard {...event} /> */}
-                <EventCard {...event}/>
+            {events.map((event) => (
+              <li key={event.title}>
+                <EventCard {...event} />
               </li>
-})}
+            ))}
           </ul>
         ) : (
           <p className="text-center text-gray-500">

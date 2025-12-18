@@ -159,7 +159,7 @@ function normalizeTime(timeString: string): string {
     throw new Error('Invalid time format. Use HH:MM or HH:MM AM/PM');
   }
 
-  console.log(match);
+  // console.log(match);
   
   let hours = parseInt(match[1]);
   const minutes = match[2];

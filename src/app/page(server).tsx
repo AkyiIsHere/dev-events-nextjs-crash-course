@@ -4,7 +4,11 @@ import { IEvent } from "@/database";
 import axios from "axios";
 
 const baseUrl = process.env.INTERNAL_BASE_URL;
+<<<<<<< Updated upstream
 console.log(baseUrl);
+=======
+// console.log(baseUrl);
+>>>>>>> Stashed changes
 
 const Page = async () => {
   let events: IEvent[] = [];
